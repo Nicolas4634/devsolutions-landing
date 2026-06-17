@@ -1,12 +1,10 @@
 services:
   - type: web
     name: devsolutions-landing
-    runtime: node
+    runtime: static
     plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    buildCommand: npm ci && npm run build
+    staticPublishPath: out
     envVars:
-      - key: NODE_ENV
-        value: production
       - key: NODE_VERSION
         value: "20"
