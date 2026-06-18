@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { AnimatedContainer } from "@/components/ui/AnimatedContainer";
+import { submitContactForm } from "@/lib/contact";
 
 interface FormData {
   name: string;
@@ -36,23 +37,19 @@ export function Contact() {
     setError("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      const data = (await response.json()) as { error?: string };
-
-      if (!response.ok) {
-        setError(data.error ?? "No se pudo enviar el mensaje. Intentá de nuevo.");
-        return;
-      }
-
+      await submitContactForm(form);
       setIsSubmitted(true);
       setForm(initialForm);
-    } catch {
-      setError("Error de conexión. Intentá de nuevo o escribinos por WhatsApp.");
+    } catch (err) {
+      if (err instanceof Error && err.message === "MISSING_KEY") {
+        setError(
+          "El formulario aún no está configurado. Escribinos por WhatsApp mientras tanto."
+        );
+      } else if (err instanceof Error && err.message !== "SEND_FAILED") {
+        setError(err.message);
+      } else {
+        setError("No se pudo enviar el mensaje. Intentá de nuevo o escribinos por WhatsApp.");
+      }
     } finally {
       setIsSubmitting(false);
     }
