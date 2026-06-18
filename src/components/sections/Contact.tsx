@@ -28,14 +28,34 @@ export function Contact() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setForm(initialForm);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setError(data.error ?? "No se pudo enviar el mensaje. Intentá de nuevo.");
+        return;
+      }
+
+      setIsSubmitted(true);
+      setForm(initialForm);
+    } catch {
+      setError("Error de conexión. Intentá de nuevo o escribinos por WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -222,6 +242,12 @@ export function Contact() {
                           placeholder="Contame sobre tu negocio y qué problema querés resolver..."
                         />
                       </div>
+
+                      {error && (
+                        <p className="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+                          {error}
+                        </p>
+                      )}
 
                       <Button
                         type="submit"
