@@ -97,7 +97,7 @@ export function Contact() {
                     <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5">
                       <MapPin className="h-4 w-4 text-cyan-400" />
                     </div>
-                    Buenos Aires, Argentina
+                    {siteConfig.location}
                   </li>
                 </ul>
               </div>
@@ -202,7 +202,7 @@ export function Contact() {
                             value={form.phone}
                             onChange={handleChange}
                             className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 transition-colors focus:border-violet-500/50 focus:outline-none focus:ring-1 focus:ring-violet-500/50"
-                            placeholder="+54 11 1234-5678"
+                            placeholder="+54 263 455-1089"
                           />
                         </div>
                       </div>

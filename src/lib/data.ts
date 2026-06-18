@@ -23,9 +23,10 @@ export const siteConfig = {
   tagline: "Software a medida para optimizar y hacer crecer tu negocio",
   description:
     "Desarrollo sistemas de gestión, aplicaciones web y soluciones personalizadas que automatizan procesos, reducen errores y aumentan la productividad.",
-  email: "contacto@nexodigital.com",
-  phone: "+54 11 1234-5678",
-  whatsapp: "https://wa.me/5491112345678",
+  email: "nexxastore934@gmail.com",
+  phone: "+54 263 455-1089",
+  whatsapp: "https://wa.me/5492634551089",
+  location: "San Martín, Mendoza",
   social: {
     linkedin: "https://linkedin.com",
     github: "https://github.com",
