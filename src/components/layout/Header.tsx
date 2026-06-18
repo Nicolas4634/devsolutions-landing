@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
-import { navLinks, siteConfig } from "@/lib/data";
+import { Menu, X } from "lucide-react";
+import { navLinks } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -34,13 +35,8 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-2.5" aria-label="Inicio">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-blue-500">
-            <Code2 className="h-4 w-4 text-white" />
-          </div>
-          <span className="text-sm font-semibold tracking-tight text-white">
-            {siteConfig.name}
-          </span>
+        <a href="#" aria-label="Inicio">
+          <Logo />
         </a>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Navegación principal">

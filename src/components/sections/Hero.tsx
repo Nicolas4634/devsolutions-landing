@@ -22,8 +22,8 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-zinc-300 backdrop-blur-sm">
-              <Sparkles className="h-3.5 w-3.5 text-violet-400" />
-              Desarrollo de software a medida
+              <Sparkles className="h-3.5 w-3.5 text-blue-400" />
+              {siteConfig.name} · Desarrollo de software a medida
             </span>
           </motion.div>
 

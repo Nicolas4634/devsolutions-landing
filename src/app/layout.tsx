@@ -14,12 +14,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "DevSolutions | Software a medida para tu negocio",
-    template: "%s | DevSolutions",
+    default: "Nexo Digital | Software a medida para tu negocio",
+    template: "%s | Nexo Digital",
   },
   description:
     "Desarrollo sistemas de gestión, aplicaciones web y soluciones personalizadas que automatizan procesos, reducen errores y aumentan la productividad.",
   keywords: [
+    "Nexo Digital",
     "desarrollo de software",
     "software a medida",
     "sistemas de gestión",
@@ -27,20 +28,26 @@ export const metadata: Metadata = {
     "automatización de procesos",
     "desarrollo web Argentina",
   ],
-  authors: [{ name: "DevSolutions" }],
+  authors: [{ name: "Nexo Digital" }],
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     type: "website",
     locale: "es_AR",
-    title: "DevSolutions | Software a medida para tu negocio",
+    title: "Nexo Digital | Software a medida para tu negocio",
     description:
       "Desarrollo sistemas de gestión, aplicaciones web y soluciones personalizadas que automatizan procesos, reducen errores y aumentan la productividad.",
-    siteName: "DevSolutions",
+    siteName: "Nexo Digital",
+    images: [{ url: "/logo.png", alt: "Nexo Digital" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevSolutions | Software a medida para tu negocio",
+    title: "Nexo Digital | Software a medida para tu negocio",
     description:
       "Desarrollo sistemas de gestión, aplicaciones web y soluciones personalizadas que automatizan procesos.",
+    images: ["/logo.png"],
   },
   robots: {
     index: true,

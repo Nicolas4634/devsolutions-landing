@@ -1,5 +1,6 @@
-import { Mail, MessageCircle, Code2 } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, TwitterIcon } from "@/components/ui/SocialIcons";
+import { Logo } from "@/components/ui/Logo";
 import { navLinks, siteConfig } from "@/lib/data";
 
 export function Footer() {
@@ -10,11 +11,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-blue-500">
-                <Code2 className="h-4 w-4 text-white" />
-              </div>
-              <span className="text-sm font-semibold text-white">{siteConfig.name}</span>
+            <a href="#">
+              <Logo size="md" />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
               Desarrollo de software a medida para empresas que buscan optimizar procesos,
