@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { caseStudies } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedContainer } from "@/components/ui/AnimatedContainer";
+import { ProjectPreview } from "@/components/sections/ProjectPreview";
 
 export function CaseStudies() {
   return (
@@ -21,7 +21,9 @@ export function CaseStudies() {
             <AnimatedContainer key={project.id} delay={index * 0.1}>
               <article className="group overflow-hidden rounded-2xl border border-white/5 bg-zinc-900/30 transition-all duration-300 hover:border-white/10">
                 <div className="grid lg:grid-cols-2">
-                  <div className={`relative overflow-hidden bg-gradient-to-br ${project.gradient} p-8 lg:p-12`}>
+                  <div
+                    className={`relative overflow-hidden bg-gradient-to-br ${project.gradient} p-6 sm:p-8 lg:p-10`}
+                  >
                     <div className="absolute inset-0 grid-pattern opacity-50" />
                     <div className="relative">
                       <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300">
@@ -30,7 +32,7 @@ export function CaseStudies() {
                       <h3 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">
                         {project.title}
                       </h3>
-                      <div className="mt-6 flex flex-wrap gap-2">
+                      <div className="mt-4 flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
@@ -40,22 +42,13 @@ export function CaseStudies() {
                           </span>
                         ))}
                       </div>
-                      <motion.div
-                        className="mt-8 flex h-40 items-center justify-center rounded-xl border border-white/5 bg-zinc-950/50 sm:h-48"
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="text-center">
-                          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-white/5">
-                            <ArrowUpRight className="h-5 w-5 text-violet-400" />
-                          </div>
-                          <p className="text-sm text-zinc-500">Vista previa del proyecto</p>
-                        </div>
-                      </motion.div>
+                      <div className="mt-6">
+                        <ProjectPreview project={project} />
+                      </div>
                     </div>
                   </div>
 
-                  <div className="space-y-6 p-8 lg:p-12">
+                  <div className="space-y-6 p-6 sm:p-8 lg:p-10">
                     <div>
                       <h4 className="text-xs font-medium tracking-wider text-violet-400 uppercase">
                         Problema
@@ -78,7 +71,10 @@ export function CaseStudies() {
                       </h4>
                       <ul className="mt-3 space-y-2">
                         {project.benefits.map((benefit) => (
-                          <li key={benefit} className="flex items-start gap-2.5 text-sm text-zinc-300">
+                          <li
+                            key={benefit}
+                            className="flex items-start gap-2.5 text-sm text-zinc-300"
+                          >
                             <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
                             {benefit}
                           </li>

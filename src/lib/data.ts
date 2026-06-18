@@ -142,6 +142,13 @@ export interface CaseStudy {
   benefits: string[];
   tags: string[];
   gradient: string;
+  /** Ruta de captura en /public, ej: /projects/repuestos-motos.png */
+  image?: string;
+  imageAlt?: string;
+  /** URL mostrada en la barra del navegador del mockup */
+  previewUrl?: string;
+  /** Link al sitio o demo en producción */
+  liveUrl?: string;
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -161,6 +168,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     tags: ["Next.js", "E-commerce", "Panel Admin"],
     gradient: "from-violet-600/20 via-purple-600/10 to-transparent",
+    image: "/projects/repuestos-motos.png",
+    imageAlt: "Tienda online de repuestos para motos",
+    previewUrl: "repuestos-motos.com",
+    // liveUrl: "https://tu-tienda.com",
   },
   {
     id: "remiseria",
@@ -178,6 +189,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     tags: ["React", "PostgreSQL", "Dashboard"],
     gradient: "from-blue-600/20 via-cyan-600/10 to-transparent",
+    image: "/projects/remiseria.png",
+    imageAlt: "Panel de gestión para remisería",
+    previewUrl: "remiseria.nexodigital.com",
+    // liveUrl: "https://tu-remiseria.com",
   },
 ];
 
